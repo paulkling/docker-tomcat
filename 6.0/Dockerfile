@@ -18,9 +18,16 @@ RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION
     rm apache-tomcat-*.tar.gz && \
     mv apache-tomcat* tomcat
 
-ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
+RUN mkdir /tomcat/deploy && \
+	mkdir /tomcat/deploy/dev && \ 
+	mkdir /tomcat/deploy/qa && \
+	mkdir /tomcat/deploy/prod
+
+ADD cp_enviroment_settings.sh /cp_enviroment_settings.sh
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
+
+ENV ENVIROMENT dev
 
 EXPOSE 8080
 CMD ["/run.sh"]
