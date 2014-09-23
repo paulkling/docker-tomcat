@@ -23,6 +23,7 @@ RUN mkdir /tomcat/deploy && \
 	mkdir /tomcat/deploy/qa && \
 	mkdir /tomcat/deploy/prod
 
+ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
 ADD cp_enviroment_settings.sh /cp_enviroment_settings.sh
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
