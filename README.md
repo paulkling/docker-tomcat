@@ -1,4 +1,6 @@
 docker-tomcat
 =============
 
-Dockerized tomcats using dockerfile/java base
+Dockerized tomcats using dockerfile / java base
+
+
